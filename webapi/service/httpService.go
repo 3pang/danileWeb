@@ -13,5 +13,7 @@ func StartUp() {
 	err := http.ListenAndServe(":9077", nil)                   //端口
 	if err != nil {
 		log.Fatal("ListenAndServe: ", err)
+	} else {
+		log.Println("=========ListenAndServe is ready")
 	}
 }
