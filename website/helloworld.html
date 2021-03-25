@@ -30,6 +30,7 @@
 
         methods: {
             submit: function(event) {
+                alert("submit");
                 var qs = JSON.stringify(this.user);
                 this.$http.post('/login', qs).then((response) => {
                     // success callback
