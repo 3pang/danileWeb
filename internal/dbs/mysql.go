@@ -1,7 +1,6 @@
 package dbs
 
 import (
-	"danilWeb/internal/user/entity"
 	"database/sql"
 	"fmt"
 	_ "github.com/go-sql-driver/mysql"
@@ -14,11 +13,14 @@ var MysqlDbErr error
 
 const (
 	USER_NAME = "root"
-	PASS_WORD = "123456"
-	HOST      = "localhost"
-	PORT      = "3306"
-	DATABASE  = "test"
-	CHARSET   = "utf8"
+	//PASS_WORD = "123456"
+	PASS_WORD = "Aa@123456"
+	//HOST      = "localhost"
+	HOST = "192.168.115.210"
+	PORT = "3306"
+	//DATABASE  = "test"
+	DATABASE = "mysql223"
+	CHARSET  = "utf8"
 )
 
 //init connection
@@ -43,19 +45,4 @@ func Init() *sql.DB {
 		log.Println("==========db connect ready")
 	}
 	return MysqlDb
-}
-
-// 查询数据，指定字段名
-func StructQueryField(userId int64) {
-	user := new(entity.User)
-	log.Println("##########start row")
-	row, _ := MysqlDb.Query("select id, name, age from users where id=?", 1)
-	log.Println("##########start scab")
-	if err := row.Scan(&user.Id, &user.Name, &user.Age); err != nil {
-		log.Println("*****************scan is nil")
-		log.Fatal("scan failed, err:%v", err)
-		fmt.Print(err)
-		return
-	}
-	log.Println(user.Id, user.Name, user.Age)
 }
