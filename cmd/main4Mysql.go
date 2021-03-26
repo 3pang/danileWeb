@@ -7,7 +7,7 @@ import (
 	"log"
 )
 
-func main() {
+func main4Mysql() {
 	//http服务监听端口
 	//service.StartUp()
 

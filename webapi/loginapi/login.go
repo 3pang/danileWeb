@@ -39,3 +39,7 @@ func Login(w http.ResponseWriter, r *http.Request) {
 			fmt.Println("password:", r.Form["password"])*/
 	}
 }
+
+func Login2(w http.ResponseWriter, r *http.Request) {
+	log.Println("************login2")
+}
